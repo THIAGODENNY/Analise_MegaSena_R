@@ -105,3 +105,54 @@ resultados_lista_ordenada <- list(arrange(resultados,V4))
 
 #escreve em arquivo os resultados ordenados
 write.table(resultados_lista_ordenada , file="resultados_ordenados.txt" , append = TRUE, row.names = FALSE,col.names = FALSE,sep = ",")
+
+#Sequencia numeros para alimentação script de verificação
+x<-60
+y<-59
+z<-58
+r<-57
+s<-56
+t<-55
+count<-0
+
+for(x in 60:1){
+  for(y in 59:1){
+    for(z in 58:1){
+      for(r in 57:1){
+        for(s in 56:1){
+          for(t in 55:1){
+            
+            X <- x #valor 1 
+            Y <- y #valor 2
+            Z <- z #valor 3
+            R <- r #valor 3
+            S <- s #valor 3
+            T <- t #valor 3
+            c <- 0 #zera contador auxiliar
+            
+            for(val in resultados_megasena$V1){
+              if(X != Y && X != Z && Z != Y){
+                if((    sorteio_01[val]==X || sorteio_02[val]==X || sorteio_03[val]==X || sorteio_04[val]==X || sorteio_05[val]==X || sorteio_06[val]==X)
+                   && (sorteio_01[val]==Y || sorteio_02[val]==Y || sorteio_03[val]==Y || sorteio_04[val]==Y || sorteio_05[val]==Y || sorteio_06[val]==Y)
+                   && (sorteio_01[val]==Z || sorteio_02[val]==Z || sorteio_03[val]==Z || sorteio_04[val]==Z || sorteio_05[val]==Z || sorteio_06[val]==Z)
+                   && (sorteio_01[val]==R || sorteio_02[val]==R || sorteio_03[val]==R || sorteio_04[val]==R || sorteio_05[val]==R || sorteio_06[val]==R)
+                   && (sorteio_01[val]==S || sorteio_02[val]==S || sorteio_03[val]==S || sorteio_04[val]==S || sorteio_05[val]==S || sorteio_06[val]==S)
+                   && (sorteio_01[val]==T || sorteio_02[val]==T || sorteio_03[val]==T || sorteio_04[val]==T || sorteio_05[val]==T || sorteio_06[val]==T)
+                ){
+                  c = c+1
+                }
+              }
+            }
+            count = count + 1
+            if(t<s && s<r && r<z && z < y && y < x){
+              print(rbind(x,y,z,r,s,t))
+              #quantidade vezes
+              resultado = cbind(x,y,z,r,s,t,c)
+              write.table(resultado , file="resultados_6_dezenas.txt" , append = TRUE, row.names = FALSE,col.names = FALSE,sep = ",")
+            }
+          }
+        }
+      }
+    }
+  }
+}
