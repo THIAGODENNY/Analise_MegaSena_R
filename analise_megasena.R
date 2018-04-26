@@ -144,7 +144,7 @@ for(x in 60:1){
               print(rbind(x,y,z,r,s))
               #quantidade vezes
               resultado = cbind(x,y,z,r,s,c)
-              write.table(resultado , file="resultados_6_dezenas.txt" , append = TRUE, row.names = FALSE,col.names = FALSE,sep = ",")
+              write.table(resultado , file="resultados_5_dezenas.txt" , append = TRUE, row.names = FALSE,col.names = FALSE,sep = ",")
             }
           }
         }
